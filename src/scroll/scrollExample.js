@@ -69,47 +69,23 @@ function scrollAnim() {
 
 scrollAnim()
 
-// const firstScrollTrigger = ScrollTrigger.create({
-//   trigger: '.hero',
-//   start: '10px top',
-//   end: 'bottom center',
-//   markers: true,
-//   scrub: 1,
-//   onEnter: self => {
-//     // cardFlipTL.pause()
-//     console.log('restart')
-//     beginScrollAnimation()
-//     // cardToBackSideTL.restart()
-//   }
-// })
+const fadeIns = document.querySelectorAll('.fade-in')
 
-// const beginScrollAnimation = () => {
-//   console.log('begin scroll anim');
-//   let state = Flip.getState(cardWrapper);
-//   console.log(state)
-//   // Ensure the card is appended to the offersImgWrapper
-//   offersImgWrapper.appendChild(cardWrapper);
-//   gsap.to(card, { rotationY: 180, duration: 0.5 })
-//   // Start the flip animation using Flip.from
-//   Flip.from(state, {
-//     absolute: true,
-//     ease: "power1.inOut",
-//     scrollTrigger: {
-//       trigger: '.hero',
-//       start: '11px top',
-//       end: 'bottom center',
-//       scrub: true,
-//       markers: true,
-//       onUpdate: (self) => {
-//         console.log(self.progress)
-//       }
-//     }
-//   });
-// }
+fadeIns.forEach((item) => {
+  console.log(item)
+  const tl = new gsap.timeline({
+    scrollTrigger: {
+      trigger: item,
+      start: 'top center',
+      markers: false,
+      duration: 0.4,
+      toggleActions: 'play reverse play reverse'
+    }
+  })
 
-// const cardToBackSideTL = new gsap.timeline({
-//   paused: true,
-//   onComplete: beginScrollAnimation
-// })
-
-// cardToBackSideTL.to(card, { rotationY: 180, duration: 0.4 })
+  tl.from(item, {
+    autoAlpha: 0,
+    y: 20,
+    ease: 'power2.inOut'
+  })
+})
