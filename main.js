@@ -73,4 +73,4 @@ cardFlipTL
     ease: 'power1.inOut'
   }, 'pause+=1.2')
 
-// cardFlipTL.play()
+cardFlipTL.play()
