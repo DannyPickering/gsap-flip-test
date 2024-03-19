@@ -1,8 +1,8 @@
+import '../style.css'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import { cardFlipTL } from './main'
 gsap.registerPlugin(Flip, ScrollTrigger)
 
 const cardWrapper = document.querySelector('.card-wrapper')
@@ -10,8 +10,9 @@ const card = document.querySelector('.card')
 const cardBack = document.querySelector('.card__back')
 const offersImgWrapper = document.querySelector('.offers-img-wrapper')
 
+console.log('scroll example')
 
-cardFlipTL.pause()
+// cardFlipTL.pause()
 gsap.set(cardWrapper, {
   perspective: 800
 })
